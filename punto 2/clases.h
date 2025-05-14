@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -8,6 +9,7 @@ class Punto {
     private:
         double x;
         double y;
+
     public:
         //Constructor
         Punto(double x, double y);
@@ -33,7 +35,7 @@ class Circulo {
 
         //Getters
         double getRadio() const;
-        Punto getPosition() const { return position; }
+        Punto getPosition() const;
 
         //Setters 
         void setRadio(double r);
@@ -48,6 +50,7 @@ class Elipse {
         double a;
         //Semieje menor
         double b;
+
     public:
         //Constructor
         Elipse(Punto center_e, double a_e, double b_e);
@@ -69,6 +72,7 @@ class Rectangulo {
         Punto left_inferior_vertex;
         double width;
         double length;
+
     public:
         //Constructor
         Rectangulo(Punto left_inferior_vertex_r, double width_r, double length_r);
@@ -90,18 +94,22 @@ template <typename T>
 class ProcesadorFiguras {
     private:
         T figure;
+
     public:
         //Constructor
-        ProcesadorFiguras(T figure_f);
+        ProcesadorFiguras(T figure_f): figure(figure_f) {};
 
         //Getters
-        T getFigura() const;
+        T getFigura() const { return figure; }
 
-        //Setters
-        void setFigura(T& f);
+        //Setters (this para referir a la instancia actual de la clase)
+        void setFigura(T& f) { this->figure = f; }
 
         //Metodo para calcular el area
-        double calculateArea();
+        double calculateArea() {
+            cout << "Tipo de figura generica" << endl;
+            return 0.0;
+        }
 };
 
 //Caso especializacion Circulo
@@ -112,10 +120,12 @@ class ProcesadorFiguras<Circulo> {
 
     public:
         //Constructor
-        ProcesadorFiguras(Circulo c1);
+        ProcesadorFiguras(Circulo c1): circle(c1) {};
 
         //Calculo del area
-        double calculateArea(Circulo& c);
+        double calculateArea(Circulo& c) {
+            return M_PI * pow(c.getRadio(),2);
+        }
 };
 
 //Caso especializacion Elipse
@@ -123,12 +133,15 @@ template<>
 class ProcesadorFiguras<Elipse> {
     private:
         Elipse elipse;
+
     public:
         //Constructor
-        ProcesadorFiguras(Elipse e1);
+        ProcesadorFiguras(Elipse e1): elipse(e1) {};
 
         //Calculo del area
-        double calculateArea(Elipse& e);
+        double calculateArea(Elipse& e) {
+            return M_PI * e.getA() * e.getB();
+        }
 };
 
 //Caso especializacion Rectangulo
@@ -136,9 +149,12 @@ template<>
 class ProcesadorFiguras<Rectangulo> {
     private:
         Rectangulo rectangle;
+        
     public:
         //Constructor
-        ProcesadorFiguras(Rectangulo r1);
+        ProcesadorFiguras(Rectangulo r1): rectangle(r1) {};
         //Calculo del area
-        double calculateArea(Rectangulo& r);
+        double calculateArea(Rectangulo& r) {
+            return r.getWidth() * r.getLength();
+        }
 };
