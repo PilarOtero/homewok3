@@ -7,38 +7,38 @@ using namespace std;
 //PUNTO
 class Punto {
     private:
-        double x;
-        double y;
+        float x;
+        float y;
 
     public:
         //Constructor
-        Punto(double x, double y);
+        Punto(float x, float y);
 
         //Getters
-        double getX() const;
-        double getY() const;
+        float getX() const;
+        float getY() const;
 
         //Setters
-        void setX(double x_p);
-        void setY(double y_p);
+        void setX(float x_p);
+        void setY(float y_p);
 };
 
 //CIRCULO
 class Circulo {
     private:
-        double radio;
+        float radio;
         Punto position;
     
     public:
         //Constructor
-        Circulo(double radio_circle, Punto position_circle);
+        Circulo(float radio_circle, Punto& position_circle);
 
         //Getters
-        double getRadio() const;
+        float getRadio() const;
         Punto getPosition() const;
 
         //Setters 
-        void setRadio(double r);
+        void setRadio(float r);
         void setPosition(Punto& p);
 };
 
@@ -47,45 +47,45 @@ class Elipse {
     private:
         Punto center;
         //Semieje mayor
-        double a;
+        float a;
         //Semieje menor
-        double b;
+        float b;
 
     public:
         //Constructor
-        Elipse(Punto center_e, double a_e, double b_e);
+        Elipse(Punto& center_e, float a_e, float b_e);
 
         //Getters
-        Punto getCenter() const;
-        double getA() const;
-        double getB() const;
+        //Punto getCenter() const;
+        float getA() const;
+        float getB() const;
 
         //Setters
-        void setCenter(Punto& p);
-        void setA(double major);
-        void setB(double minor); 
+        //void setCenter(Punto& p);
+        void setA(float major);
+        void setB(float minor); 
 };
 
 //RECTANGULO
 class Rectangulo {
     private:
         Punto left_inferior_vertex;
-        double width;
-        double length;
+        float width;
+        float length;
 
     public:
         //Constructor
-        Rectangulo(Punto left_inferior_vertex_r, double width_r, double length_r);
+        Rectangulo(Punto left_inferior_vertex_r, float width_r, float length_r);
 
         //Getters
         Punto getLeftInferiorVertex() const;
-        double getWidth() const;
-        double getLength() const;
+        float getWidth() const;
+        float getLength() const;
 
         //Setters (this para referir a la instancia actual de la clase)
         void setLeftInferiorVertex(Punto& p);
-        void setWidth(double w);
-        void setLength(double l);
+        void setWidth(float w);
+        void setLength(float l);
 };
 
 //PROCESADOR DE FIGURAS
@@ -106,7 +106,7 @@ class ProcesadorFiguras {
         void setFigura(T& f) { this->figure = f; }
 
         //Metodo para calcular el area
-        double calculateArea() {
+        float calculateArea() {
             cout << "Tipo de figura generica" << endl;
             return 0.0;
         }
@@ -123,7 +123,7 @@ class ProcesadorFiguras<Circulo> {
         ProcesadorFiguras(Circulo c1): circle(c1) {};
 
         //Calculo del area
-        double calculateArea(Circulo& c) {
+        float calculateArea(Circulo& c) {
             return M_PI * pow(c.getRadio(),2);
         }
 };
@@ -139,7 +139,7 @@ class ProcesadorFiguras<Elipse> {
         ProcesadorFiguras(Elipse e1): elipse(e1) {};
 
         //Calculo del area
-        double calculateArea(Elipse& e) {
+        float calculateArea(Elipse& e) {
             return M_PI * e.getA() * e.getB();
         }
 };
@@ -154,7 +154,7 @@ class ProcesadorFiguras<Rectangulo> {
         //Constructor
         ProcesadorFiguras(Rectangulo r1): rectangle(r1) {};
         //Calculo del area
-        double calculateArea(Rectangulo& r) {
+        float calculateArea(Rectangulo& r) {
             return r.getWidth() * r.getLength();
         }
 };
