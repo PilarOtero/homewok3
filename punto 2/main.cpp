@@ -14,9 +14,10 @@ int main () {
     Rectangulo r1(rectangle_infV, 5.0, 10.333);
 
     //Procesadores
-    ProcesadorFiguras<Circulo> processed_circle(c1);
-    ProcesadorFiguras<Elipse> processed_elipse(e1);
-    ProcesadorFiguras<Rectangulo> processed_rectangle(r1);
+    ProcesadorFiguras<Circulo> processed_circle;
+    ProcesadorFiguras<Elipse> processed_elipse;
+    ProcesadorFiguras<Rectangulo> processed_rectangle;
+    ProcesadorFiguras<Punto> processed_point;
 
     //Defino que el resultado tenga 3 cifras detras de la coma
     cout << fixed << setprecision(3);
@@ -24,4 +25,6 @@ int main () {
     cout << "1. Circulo -> A =  " << processed_circle.calculateArea(c1) << endl;
     cout << "2. Elipse -> A = " << processed_elipse.calculateArea(e1) << endl;
     cout << "3. Rectangulo -> A = " << processed_rectangle.calculateArea(r1) << endl;
+    //Prueba con caso generico
+    cout << "4. Punto -> "; processed_point.calculateArea(p1);
 }

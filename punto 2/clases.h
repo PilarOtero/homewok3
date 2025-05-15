@@ -92,36 +92,17 @@ class Rectangulo {
 //Caso generico
 template <typename T>
 class ProcesadorFiguras {
-    private:
-        T figure;
-
     public:
-        //Constructor
-        ProcesadorFiguras(T figure_f): figure(figure_f) {};
-
-        //Getters
-        T getFigura() const { return figure; }
-
-        //Setters (this para referir a la instancia actual de la clase)
-        void setFigura(T& f) { this->figure = f; }
-
         //Metodo para calcular el area
-        float calculateArea() {
+        void calculateArea(T& figure) {
             cout << "Tipo de figura generica" << endl;
-            return 0.0;
         }
 };
 
 //Caso especializacion Circulo
 template <>
 class ProcesadorFiguras<Circulo> {
-    private:
-        Circulo circle;
-
     public:
-        //Constructor
-        ProcesadorFiguras(Circulo c1): circle(c1) {};
-
         //Calculo del area
         float calculateArea(Circulo& c) {
             return M_PI * pow(c.getRadio(),2);
@@ -131,13 +112,7 @@ class ProcesadorFiguras<Circulo> {
 //Caso especializacion Elipse
 template<>
 class ProcesadorFiguras<Elipse> {
-    private:
-        Elipse elipse;
-
     public:
-        //Constructor
-        ProcesadorFiguras(Elipse e1): elipse(e1) {};
-
         //Calculo del area
         float calculateArea(Elipse& e) {
             return M_PI * e.getA() * e.getB();
@@ -147,12 +122,7 @@ class ProcesadorFiguras<Elipse> {
 //Caso especializacion Rectangulo
 template<>
 class ProcesadorFiguras<Rectangulo> {
-    private:
-        Rectangulo rectangle;
-        
     public:
-        //Constructor
-        ProcesadorFiguras(Rectangulo r1): rectangle(r1) {};
         //Calculo del area
         float calculateArea(Rectangulo& r) {
             return r.getWidth() * r.getLength();
