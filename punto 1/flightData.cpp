@@ -1,12 +1,18 @@
 #include "fligthData.h"
 
-//COMENTARIO -> al serializar y deserializar se utilizan los propios metodos de serializacion y deserializacion de la clase base para ahorrar codigo
+/* COMENTARIOS 
+-> al serializar y deserializar se utilizan los propios metodos de serializacion y deserializacion de la clase base para ahorrar codigo
+-> Presion y Posicion, al heredarse de MedicionBase, llaman a su constructor y ahi se produce el problema: esta clase tiene un puntero unique a tiempoMedicion, lo que significa que no comparten ownership (de modo que no se puede copiar este atributo directamente).
+Siguiendo esto, y pensando en que move lo que hace es transferir el ownership, opte por implementar un constructor de copia para resolver el error SIN transferir la propiedad
+*/
 
 //CLASE ABSTRACTA - MEDICION BASE
 //Constructor
 MedicionBase::MedicionBase(float tiempoMedicion_base) {
     tiempoMedicion = make_unique<float>(tiempoMedicion_base);
 }
+//Constructor copia
+MedicionBase::MedicionBase(const MedicionBase& other): tiempoMedicion(make_unique<float>(*other.tiempoMedicion)) {};
 
 //Metodos
 void MedicionBase:: serializar(ofstream& out) const {
@@ -27,6 +33,8 @@ float MedicionBase:: getTiempo() const {
 //CLASE DERIVADA PRESION
 //Constructor
 Presion::Presion(float p, float q, float t): MedicionBase(t), presionEstatica(p), presionDinamica(q) {};
+//Constructor de copia -> resuelve el tema del unique ptr
+Presion::Presion(const Presion& other): MedicionBase(*other.tiempoMedicion), presionEstatica(other.presionEstatica), presionDinamica(other.presionDinamica) {};
 
 //Metodos
 void Presion:: serializar(ofstream& out) const {
@@ -44,7 +52,7 @@ void Presion:: deserializar(ifstream& in) {
 }
 
 void Presion:: imprimir() const {
-    cout << "----PRESION----" << endl;
+    cout << "[PRESION]" << endl;
     cout << "PRESION ESTATICA -> " << presionEstatica << "\nPRESION DINAMICA -> " << presionDinamica << endl;
     cout << "TIEMPO DE MEDICION - presion -> " << *tiempoMedicion << endl;
 }
@@ -52,6 +60,9 @@ void Presion:: imprimir() const {
 //CLASE DERIVADA POSICION
 //Constructor
 Posicion::Posicion(float lat, float lon, float alt, float t): MedicionBase(t), latitud(lat), longitud(lon), altitud(alt) {};
+
+//Constructor de copia 
+Posicion::Posicion(const Posicion& other): MedicionBase(*other.tiempoMedicion), latitud(other.latitud), longitud(other.longitud), altitud(other.altitud) {};
 
 //Metodos
 void Posicion:: serializar(ofstream& out) const {
@@ -71,7 +82,7 @@ void Posicion:: deserializar(ifstream& in) {
 }
 
 void Posicion:: imprimir() const {
-    cout << "\n----POSICION----" << endl;
+    cout << "\n[POSICION]" << endl;
     cout << "LATITUD -> " << latitud << "\nLONGITUD -> " << longitud << "\nALTITUD -> " << altitud << endl;
     cout << "TIEMPO DE MEDICION - posicion -> " << *tiempoMedicion << endl;
 }

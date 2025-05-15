@@ -27,7 +27,7 @@ int main () {
     }
 
     //Imprimo la informacion
-    cout << "----- INFORMACION DE VUELO (deserializada) -----" << endl;
+    cout << "----- INFORMACION DE VUELO -----" << endl;
     flightIntel2.imprimir();
     cout << "-------------------------------------------------" << endl;
 }

@@ -21,6 +21,8 @@ class MedicionBase: public IMediciones {
     public:
         //Constructor
         MedicionBase(float tiempoMedicion);
+        //Constructor de copia
+        MedicionBase(const MedicionBase& other);
 
         //Metodos
         virtual void serializar(ofstream& out) const override;
@@ -38,6 +40,8 @@ class Presion: public MedicionBase {
         float presionDinamica;
         //Constructor -> p = presionEstatica, q = presionDinamica, t = tiempoMedicion
         Presion(float p, float q, float t);
+        //Constructor de copia 
+        Presion(const Presion& other);
 
         //Metodos
         virtual void serializar(ofstream& out) const override;
@@ -55,6 +59,8 @@ class Posicion: public MedicionBase {
         float altitud;
         //Constructor
         Posicion(float lat, float lon, float alt, float t);
+        //Constructor de copia
+        Posicion(const Posicion& other);
 
         //Metodos
         virtual void serializar(ofstream& out) const override;
