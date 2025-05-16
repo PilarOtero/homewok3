@@ -11,7 +11,7 @@ string toString(const vector<T>& vectorT) {
     ostringstream oss;
     oss << "[";
 
-    /* Si el elemento no es el primero, agrego una coma para separar los elementos, caso contrario se imprimira:
+    /* Si el elemento no es el primero, agrego una coma para separar los elementos, caso contrario se imprimirá:
     { "vec_doubles": [1.32.13.2],
       "palabras": ["Hola""Mundo"],
       "listas": [

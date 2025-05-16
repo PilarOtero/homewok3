@@ -56,12 +56,10 @@ class Elipse {
         Elipse(Punto& center_e, float a_e, float b_e);
 
         //Getters
-        //Punto getCenter() const;
         float getA() const;
         float getB() const;
 
         //Setters
-        //void setCenter(Punto& p);
         void setA(float major);
         void setB(float minor); 
 };

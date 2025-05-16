@@ -17,7 +17,7 @@ void Punto::setX(float x_p) { this->x = x_p; }
 void Punto::setY(float y_p) { this->y = y_p; }
 
 
-//CIRCULO
+//CÍRCULO
 //Constructor
 Circulo::Circulo(float radio_circle, Punto& position_circle): radio(radio_circle), position(position_circle) {};
 
@@ -33,18 +33,17 @@ void Circulo::setPosition(Punto& p) { this->position = p; }
 //ELIPSE
 //Constructor
 Elipse::Elipse(Punto& center_e, float a_e, float b_e): center(center_e), a(a_e), b(b_e) {};
+
 //Getters
-//Punto Elipse::getCenter() const { return center; }
 float Elipse::getA() const { return a; }
 float Elipse::getB() const { return b; }
 
 //Setters (this para referir a la instancia actual de la clase)
-//void Elipse::setCenter(Punto& p) { this->center = p; }
 void Elipse::setA(float major) { this->a = major; }
 void Elipse::setB(float minor) { this->b = minor; }     
 
 
-//RECTANGULO
+//RECTÁNGULO
 //Constructor
 Rectangulo::Rectangulo(Punto left_inferior_vertex_r, float width_r, float length_r): left_inferior_vertex(left_inferior_vertex_r), width(width_r), length(length_r) {};
 

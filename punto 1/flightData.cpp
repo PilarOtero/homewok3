@@ -6,7 +6,7 @@
 Siguiendo esto, y pensando en que move lo que hace es transferir el ownership, opté por implementar un Copy Constructor para resolver el error SIN transferir la propiedad
 */
 
-//CLASE ABSTRACTA - MEDICION BASE
+//CLASE ABSTRACTA - MEDICIÓN BASE
 //Constructor
 MedicionBase::MedicionBase(float tiempoMedicion_base) {
     tiempoMedicion = make_unique<float>(tiempoMedicion_base);
@@ -36,7 +36,7 @@ Presion::Presion(float p, float q, float t): MedicionBase(t), presionEstatica(p)
 
 //Métodos
 void Presion:: serializar(ofstream& out) const {
-    //LLamo al metodo de la clase base para serializar el tiempo de medicion
+    //LLamo al método de la clase base para serializar el tiempo de medición
     MedicionBase::serializar(out);
     out.write(reinterpret_cast<const char*>(&presionEstatica), sizeof(presionEstatica));
     out.write(reinterpret_cast<const char*>(&presionDinamica), sizeof(presionDinamica));
@@ -50,9 +50,9 @@ void Presion:: deserializar(ifstream& in) {
 }
 
 void Presion:: imprimir() const {
-    cout << "[PRESION]" << endl;
-    cout << "PRESION ESTATICA -> " << presionEstatica << "\nPRESION DINAMICA -> " << presionDinamica << endl;
-    cout << "TIEMPO DE MEDICION - presion -> " << *tiempoMedicion << endl;
+    cout << "[PRESIÓN]" << endl;
+    cout << "PRESIÓN ESTÁTICA -> " << presionEstatica << "\nPRESIÓN DINÁMICA -> " << presionDinamica << endl;
+    cout << "TIEMPO DE MEDICIÓN - presión -> " << *tiempoMedicion << endl;
 }
 
 //CLASE DERIVADA POSICIÓN
@@ -77,9 +77,9 @@ void Posicion:: deserializar(ifstream& in) {
 }
 
 void Posicion:: imprimir() const {
-    cout << "\n[POSICION]" << endl;
+    cout << "\n[POSICIÓN]" << endl;
     cout << "LATITUD -> " << latitud << "\nLONGITUD -> " << longitud << "\nALTITUD -> " << altitud << endl;
-    cout << "TIEMPO DE MEDICION - posicion -> " << *tiempoMedicion << endl;
+    cout << "TIEMPO DE MEDICIÓN - posición -> " << *tiempoMedicion << endl;
 }
 
 //CLASE SAVE FLIGHT DATA
