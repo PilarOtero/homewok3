@@ -31,7 +31,6 @@ void Circulo::setPosition(Punto& p) { this->position = p; }
 
 
 //ELIPSE
-
 //Constructor
 Elipse::Elipse(Punto& center_e, float a_e, float b_e): center(center_e), a(a_e), b(b_e) {};
 //Getters
@@ -58,10 +57,3 @@ float Rectangulo::getLength() const { return length; }
 void Rectangulo::setLeftInferiorVertex(Punto& p) { this->left_inferior_vertex = p; }
 void Rectangulo::setWidth(float w) { this->width = w; }
 void Rectangulo::setLength(float l) { this->length = l; }
-
-
-
-
-
-
-

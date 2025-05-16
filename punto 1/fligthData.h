@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//INTERFAZ
 class IMediciones {
     public:
         virtual void serializar(ofstream& out) const = 0;
@@ -25,7 +26,7 @@ class MedicionBase: public IMediciones {
         //Constructor de copia
         MedicionBase(const MedicionBase& other);
 
-        //Metodos
+        //Métodos
         virtual void serializar(ofstream& out) const override;
         virtual void deserializar(ifstream& in) override;
         virtual void imprimir() const = 0;
@@ -41,16 +42,11 @@ class Presion: public MedicionBase {
         float presionDinamica;
         //Constructor -> p = presionEstatica, q = presionDinamica, t = tiempoMedicion
         Presion(float p, float q, float t);
-        //Constructor de copia 
-        Presion(const Presion& other);
 
         //Metodos
         virtual void serializar(ofstream& out) const override;
         virtual void deserializar(ifstream& in) override;
         virtual void imprimir() const override;
-
-        //Destructor
-        ~Presion() = default;
 };
 
 class Posicion: public MedicionBase {
@@ -60,16 +56,11 @@ class Posicion: public MedicionBase {
         float altitud;
         //Constructor
         Posicion(float lat, float lon, float alt, float t);
-        //Constructor de copia
-        Posicion(const Posicion& other);
 
-        //Metodos
+        //Métodos
         virtual void serializar(ofstream& out) const override;
         virtual void deserializar(ifstream& in) override;
         virtual void imprimir() const override;
-
-        //Destructor
-        ~Posicion() = default;
 };
 
 class SaveFlightData {
@@ -79,7 +70,7 @@ class SaveFlightData {
         //Constructor
         SaveFlightData(const shared_ptr<Posicion>& p, const shared_ptr<Presion>& pr);
 
-        //Metodos
+        //Métodos
         void serializar(ofstream& out) const;
         void deserializar(ifstream& in);
         void imprimir() const;

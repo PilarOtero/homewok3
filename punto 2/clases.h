@@ -23,7 +23,7 @@ class Punto {
         void setY(float y_p);
 };
 
-//CIRCULO
+//CÍRCULO
 class Circulo {
     private:
         float radio;
@@ -89,41 +89,41 @@ class Rectangulo {
 };
 
 //PROCESADOR DE FIGURAS
-//Caso generico
+//Caso genérico
 template <typename T>
 class ProcesadorFiguras {
     public:
-        //Metodo para calcular el area
+        //Método para calcular el area
         void calculateArea(T& figure) {
             cout << "Tipo de figura generica";
         }
 };
 
-//Caso especializacion Circulo
+//Caso especialización Círculo
 template <>
 class ProcesadorFiguras<Circulo> {
     public:
-        //Calculo del area
+        //Cálculo del área
         float calculateArea(Circulo& c) {
             return M_PI * pow(c.getRadio(),2);
         }
 };
 
-//Caso especializacion Elipse
+//Caso especialización Elipse
 template<>
 class ProcesadorFiguras<Elipse> {
     public:
-        //Calculo del area
+        //Cálculo del área
         float calculateArea(Elipse& e) {
             return M_PI * e.getA() * e.getB();
         }
 };
 
-//Caso especializacion Rectangulo
+//Caso especialización Rectangulo
 template<>
 class ProcesadorFiguras<Rectangulo> {
     public:
-        //Calculo del area
+        //Cálculo del área
         float calculateArea(Rectangulo& r) {
             return r.getWidth() * r.getLength();
         }

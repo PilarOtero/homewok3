@@ -9,7 +9,7 @@ void handle_serializationYdeserializacion(SaveFlightData& flightIntel){
         out.close(); 
     }
 
-    //Creo los objetos donde se guardara la informacion al deserializar
+    //Creo los objetos donde se guardará la información al deserializar
     shared_ptr<Posicion> posicion2 = make_shared<Posicion>(0.0f,0.0f,0.0f,0.0f);
     shared_ptr<Presion> presion2 = make_shared<Presion>(0.0f,0.0f,0.0f);
     SaveFlightData flightIntel2(posicion2, presion2);
@@ -21,8 +21,8 @@ void handle_serializationYdeserializacion(SaveFlightData& flightIntel){
         in.close();
     }
 
-    //Imprimo la informacion
-    cout << "----- INFORMACION DE VUELO -----" << endl;
+    //Imprimo la información
+    cout << "----- INFORMACIÓN DE VUELO -----" << endl;
     flightIntel.imprimir();
     cout << "-------------------------------------------------" << endl;
 }
