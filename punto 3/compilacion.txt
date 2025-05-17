@@ -1,0 +1,5 @@
+COMPILACIÓN
+1. g++ -Wall -std=c++17 -g main.cpp -o main
+2. ./main
+
+(copiar y pegar las lóneas en la terminal SIN agregar espacios)

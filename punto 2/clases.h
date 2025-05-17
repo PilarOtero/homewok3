@@ -93,7 +93,7 @@ class ProcesadorFiguras {
     public:
         //Método para calcular el area
         void calculateArea(T& figure) {
-            cout << "Tipo de figura generica";
+            cout << "Tipo de figura genérica";
         }
 };
 
