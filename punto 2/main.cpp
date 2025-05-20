@@ -23,9 +23,9 @@ int main () {
     cout << fixed << setprecision(3);
 
     cout << "-----------AREAS-----------" << endl;
-    cout << "1. Circulo -> A =  " << processed_circle.calculateArea(c1) << endl;
+    cout << "1. Círculo -> A =  " << processed_circle.calculateArea(c1) << endl;
     cout << "2. Elipse -> A = " << processed_elipse.calculateArea(e1) << endl;
-    cout << "3. Rectangulo -> A = " << processed_rectangle.calculateArea(r1) << endl;
+    cout << "3. Rectángulo -> A = " << processed_rectangle.calculateArea(r1) << endl;
     //Prueba caso genérico 
     cout << "4. Punto -> A = 0 ("; processed_point.calculateArea(p1); cout << ")" << endl;
 }

@@ -39,6 +39,7 @@ class MedicionBase: public IMediciones {
 class Presion: public MedicionBase {
     public:
         float presionEstatica, presionDinamica;
+
         //Constructor -> p = presionEstatica, q = presionDinamica, t = tiempoMedicion
         Presion(float p, float q, float t);
 
@@ -64,6 +65,7 @@ class SaveFlightData {
     public:
         shared_ptr<Posicion> posicion;
         shared_ptr<Presion> presion;
+        
         //Constructor
         SaveFlightData(const shared_ptr<Posicion>& p, const shared_ptr<Presion>& pr);
 
