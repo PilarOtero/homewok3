@@ -38,8 +38,7 @@ class MedicionBase: public IMediciones {
 
 class Presion: public MedicionBase {
     public:
-        float presionEstatica;
-        float presionDinamica;
+        float presionEstatica, presionDinamica;
         //Constructor -> p = presionEstatica, q = presionDinamica, t = tiempoMedicion
         Presion(float p, float q, float t);
 
@@ -51,9 +50,7 @@ class Presion: public MedicionBase {
 
 class Posicion: public MedicionBase {
     public:
-        float latitud;
-        float longitud;
-        float altitud;
+        float latitud, longitud, altitud;
         //Constructor
         Posicion(float lat, float lon, float alt, float t);
 

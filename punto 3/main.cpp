@@ -5,6 +5,10 @@
 
 using namespace std;
 
+//Defino los alias a utilizar
+using vecInt = vector<int>;
+using datosJSON = vector<pair<string, string>>;
+
 template <typename T>
 string toString(const vector<T>& vectorT) {
     //Utilizo el método ostringstream para convertir el vector a string de manera más sencilla
@@ -65,7 +69,7 @@ class GeneradorVector {
             }
 
             //VECTOR DE ENTEROS
-            else if constexpr(is_same_v<T, vector<int>>){
+            else if constexpr(is_same_v<T, vecInt>){
                 string impresion = "[\n";
                 for (const auto& lista: vec){
                     impresion += "\t  " + toString(lista);
@@ -87,7 +91,7 @@ class GeneradorVector {
 class JSONGenerador {
     private:
         //El primer elemento (key) será el nombre de la lista (valor)
-        vector<pair<string, string>> datos;
+        datosJSON datos;
     
     public:
         template <typename T>
@@ -117,12 +121,11 @@ class JSONGenerador {
 };
 
 
-
 int main() {
     //Genero los vectores
     GeneradorVector<double> vec_doubles;
     GeneradorVector<string> palabras;
-    GeneradorVector<vector<int>> listas;
+    GeneradorVector<vecInt> listas;
     JSONGenerador generador;
 
     //Agrego los datos a su respectivo vector
@@ -133,8 +136,8 @@ int main() {
     palabras.agregar("Hola");
     palabras.agregar("Mundo");
 
-    listas.agregar({1, 2});
-    listas.agregar({3, 4});
+    listas.agregar({1,2});
+    listas.agregar({3,4});
 
     generador.agregar("vec_doubles", vec_doubles);
     generador.agregar("palabras", palabras);
