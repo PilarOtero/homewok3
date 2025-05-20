@@ -4,28 +4,28 @@
 int main () {
     //Creación de puntos
     Punto p1(10,20);
-    Punto circle_center(2.5,5.3);
-    Punto elipse_center(4.8,7.0);
-    Punto rectangle_infV(4.4,4.4);
+    Punto centro_circulo(2.5,5.3);
+    Punto centro_elipse(4.8,7.0);
+    Punto rectangulo_infV(4.4,4.4);
 
     //Creación de figuras
-    Circulo c1(5.0, circle_center);
-    Elipse e1(elipse_center, 10.9, 15.6);
-    Rectangulo r1(rectangle_infV, 5.0, 10.333);
+    Circulo c1(5.0, centro_circulo);
+    Elipse e1(centro_elipse, 10.9, 15.6);
+    Rectangulo r1(rectangulo_infV, 5.0, 10.333);
 
     //Procesadores
-    ProcesadorFiguras<Circulo> processed_circle;
-    ProcesadorFiguras<Elipse> processed_elipse;
-    ProcesadorFiguras<Rectangulo> processed_rectangle;
-    ProcesadorFiguras<Punto> processed_point;
+    ProcesadorFiguras<Circulo> circulo_procesado;
+    ProcesadorFiguras<Elipse> elipse_procesada;
+    ProcesadorFiguras<Rectangulo> rectangulo_procesado;
+    ProcesadorFiguras<Punto> punto_procesado;
 
     //Defino que el resultado tenga 3 cifras detrás de la coma
     cout << fixed << setprecision(3);
 
     cout << "-----------AREAS-----------" << endl;
-    cout << "1. Círculo -> A =  " << processed_circle.calculateArea(c1) << endl;
-    cout << "2. Elipse -> A = " << processed_elipse.calculateArea(e1) << endl;
-    cout << "3. Rectángulo -> A = " << processed_rectangle.calculateArea(r1) << endl;
+    cout << "1. Círculo -> A =  " << circulo_procesado.calculateArea(c1) << endl;
+    cout << "2. Elipse -> A = " << elipse_procesada.calculateArea(e1) << endl;
+    cout << "3. Rectángulo -> A = " << rectangulo_procesado.calculateArea(r1) << endl;
     //Prueba caso genérico 
-    cout << "4. Punto -> A = 0 ("; processed_point.calculateArea(p1); cout << ")" << endl;
+    cout << "4. Punto -> A = 0 ("; punto_procesado.calculateArea(p1); cout << ")" << endl;
 }
