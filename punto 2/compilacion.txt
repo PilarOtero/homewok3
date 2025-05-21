@@ -1,5 +1,6 @@
 COMPILACIÓN
-1. g++ -Wall -std=c++17 -g clases.cpp main.cpp -o main
-2. ./main
+1. 1. acceder a la carpeta de este ejercicio escribiendo en la terminal cd "punto 2"
+2. g++ -Wall -std=c++17 -g clases.cpp main.cpp -o main
+3. ./main
 
 (copiar y pegar las lóneas en la terminal SIN agregar espacios)
