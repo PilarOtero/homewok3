@@ -52,7 +52,7 @@ void Presion:: deserializar(ifstream& in) {
 void Presion:: imprimir() const {
     cout << "[PRESIÓN]" << endl;
     cout << "PRESIÓN ESTÁTICA -> " << presionEstatica << "\nPRESIÓN DINÁMICA -> " << presionDinamica << endl;
-    cout << "TIEMPO DE MEDICIÓN - presión -> " << *tiempoMedicion << endl;
+    cout << "TIEMPO DE MEDICIÓN -> " << *tiempoMedicion << endl;
 }
 
 //CLASE DERIVADA POSICIÓN
@@ -79,7 +79,7 @@ void Posicion:: deserializar(ifstream& in) {
 void Posicion:: imprimir() const {
     cout << "\n[POSICIÓN]" << endl;
     cout << "LATITUD -> " << latitud << "\nLONGITUD -> " << longitud << "\nALTITUD -> " << altitud << endl;
-    cout << "TIEMPO DE MEDICIÓN - posición -> " << *tiempoMedicion << endl;
+    cout << "TIEMPO DE MEDICIÓN -> " << *tiempoMedicion << endl;
 }
 
 //CLASE SAVE FLIGHT DATA

@@ -53,35 +53,36 @@ class GeneradorVector {
             vec.push_back(nuevoDato);
         }
 
-        //Manejo la impresion de los datos en funcion de su tipo
+        //Manejo la impresión de los datos en función de su tipo
         string procesar() const {
             if (vec.empty()) {
                 return "[]";
             }
-            //DOUBLE
+            //Double
             if constexpr(is_same_v<T, double>){
                 return toString(vec);
             }
 
-            //STRING
+            //String
             else if constexpr(is_same_v<T, string>){
                 return toString(vec);
             }
 
-            //VECTOR DE ENTEROS
+            //Vector de int
             else if constexpr(is_same_v<T, vecInt>){
                 string impresion = "[\n";
                 for (const auto& lista: vec){
                     impresion += "\t  " + toString(lista);
+                    // .back() devuelve el último elemento del vector -> si no es el último elemento, agrego una coma
                     if (lista != vec.back()){
                         impresion += ",\n";
                     }
                 }
-                impresion += "\n\t  ]";
+                impresion += "\n\t ]";
                 return impresion;
             }
 
-            //TIPOS DESCONOCIDOS -> el tipo de dato no es ninguno de los anteriores
+            //Tipo desconocido -> el tipo de dato no es ninguno de los anteriores
             else{
                 cout << "Tipo de dato desconocido" << endl;
             }
@@ -95,23 +96,24 @@ class JSONGenerador {
     
     public:
         template <typename T>
-        //Agrego a la impresion el nombre del vector y su vector correspondiente 
+        //Agrego a la impresión el nombre del vector y su vector correspondiente 
         void agregar(const string& nombreVec, const GeneradorVector<T>& valor){
             datos.push_back({nombreVec, valor.procesar()});
         }
 
-        //Impresion de los datos en formato JSON
+        //Impresión de los datos en formato JSON
         void imprimir() const {
             cout << "{";
-            for (size_t i = 0; i < datos.size(); i++){
-                const auto& dato = datos[i];
-                if (i == 0) {
+            for (const auto& dato:datos){
+                //El elemento es el primero
+                if (dato == datos.front()) {
                     cout << " \"" << dato.first << "\": " << dato.second;
                 }
                 else {
                     cout << "  \"" << dato.first << "\": " << dato.second;
                 }
-                if (i != datos.size() - 1){
+                //Imprimo una coma después del elemento si no es el último
+                if (dato != datos.back()){
                     cout << ",";
                 }
                 cout << "\n";
