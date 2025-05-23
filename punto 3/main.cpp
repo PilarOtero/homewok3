@@ -48,6 +48,9 @@ class GeneradorVector {
         vector<T> vec;
     
     public:
+        //Constructor
+        GeneradorVector() = default;
+
         //Agrego un elemento al vector
         void agregar(const T& nuevoDato){
             vec.push_back(nuevoDato);
@@ -62,12 +65,10 @@ class GeneradorVector {
             if constexpr(is_same_v<T, double>){
                 return toString(vec);
             }
-
             //String
             else if constexpr(is_same_v<T, string>){
                 return toString(vec);
             }
-
             //Vector de int
             else if constexpr(is_same_v<T, vecInt>){
                 string impresion = "[\n";
@@ -81,12 +82,14 @@ class GeneradorVector {
                 impresion += "\n\t ]";
                 return impresion;
             }
-
             //Tipo desconocido -> el tipo de dato no es ninguno de los anteriores
             else{
                 cout << "Tipo de dato desconocido" << endl;
             }
         }
+        
+        //Destructor
+        ~GeneradorVector() = default;
 };
 
 class JSONGenerador {
@@ -95,6 +98,9 @@ class JSONGenerador {
         datosJSON datos;
     
     public:
+        //Constructor
+        JSONGenerador() = default;
+
         template <typename T>
         //Agrego a la impresión el nombre del vector y su vector correspondiente 
         void agregar(const string& nombreVec, const GeneradorVector<T>& valor){
@@ -120,6 +126,9 @@ class JSONGenerador {
             }
             cout << "}" << endl;
         }
+
+        //Destructor
+        ~JSONGenerador() = default;
 };
 
 

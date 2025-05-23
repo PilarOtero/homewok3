@@ -91,38 +91,62 @@ class Rectangulo {
 template <typename T>
 class ProcesadorFiguras {
     public:
+        //Constructor
+        ProcesadorFiguras() = default;
+
         //Método para calcular el area
         void calculateArea(T& figure) {
             cout << "Tipo de figura genérica";
         }
+
+        //Destructor
+        ~ProcesadorFiguras() = default;
 };
 
 //Caso especialización Círculo
 template <>
 class ProcesadorFiguras<Circulo> {
     public:
+        //Constructor
+        ProcesadorFiguras() = default;
+
         //Cálculo del área
         float calculateArea(Circulo& c) {
             return M_PI * pow(c.getRadio(),2);
         }
+
+        //Destructor
+        ~ProcesadorFiguras() = default;
 };
 
 //Caso especialización Elipse
 template<>
 class ProcesadorFiguras<Elipse> {
     public:
+        //Constructor
+        ProcesadorFiguras() = default;
+
         //Cálculo del área
         float calculateArea(Elipse& e) {
             return M_PI * e.getA() * e.getB();
         }
+
+        //Destructor
+        ~ProcesadorFiguras() = default;
 };
 
 //Caso especialización Rectangulo
 template<>
 class ProcesadorFiguras<Rectangulo> {
     public:
+        //Constructor
+        ProcesadorFiguras() = default;
+
         //Cálculo del área
         float calculateArea(Rectangulo& r) {
             return r.getWidth() * r.getLength();
         }
+
+        //Destructor
+        ~ProcesadorFiguras() = default;
 };
