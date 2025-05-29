@@ -1,4 +1,4 @@
-COMPILACIÓN
+COMPILACIÓN ->
 Para la compilación de los ejercicios 1 y 2 seguir los siguientes pasos (escribiendo en la terminal):
 1. acceder a la carpeta de este ejercicio escribiendo en la terminal cd "punto x"
 2. g++ -Iheaders sources/*.cpp example/main.cpp -o main
