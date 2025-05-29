@@ -1,6 +1,0 @@
-COMPILACIÓN
-1. 1. acceder a la carpeta de este ejercicio escribiendo en la terminal cd "punto 2"
-2. g++ -Iheaders sources/*.cpp example/main.cpp -o main
-3. ./main
-
-(copiar y pegar las lóneas en la terminal SIN agregar espacios)
