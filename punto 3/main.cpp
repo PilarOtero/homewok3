@@ -12,7 +12,7 @@ using datosJSON = vector<pair<string, string>>;
 template <typename T>
 string toString(const vector<T>& vectorT) {
     //Utilizo el método ostringstream para convertir el vector a string de manera más sencilla
-    ostringstream oss;
+    ostringstream oss; 
     oss << "[";
 
     /* Si no se está en la primera posición, agrego una coma para separar los elementos, caso contrario se imprimirá:
@@ -87,7 +87,7 @@ class GeneradorVector {
                 cout << "Tipo de dato desconocido" << endl;
             }
         }
-        
+
         //Destructor
         ~GeneradorVector() = default;
 };

@@ -1,4 +1,4 @@
 #pragma once
-#include "fligthData.h"
+#include "flightData.h"
 
 void handle_serializationYdeserializacion(SaveFlightData& flightIntel);

@@ -1,4 +1,4 @@
-#include "clases.h"
+#include "../headers/clases.h"
 #include <iomanip>
 
 int main () {

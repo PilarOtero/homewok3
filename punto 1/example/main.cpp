@@ -1,5 +1,5 @@
-#include "fligthData.h"
-#include "functions.h"
+#include "../headers/functions.h"
+#include "../headers/flightData.h"
 
 int main () {
     //Creación de Objetos

@@ -1,6 +1,0 @@
-COMPILACIÓN
-1. acceder a la carpeta de este ejercicio escribiendo en la terminal cd "punto 1"
-2. g++ -Wall -std=c++17 -g flightData.cpp functions.cpp main.cpp -o main
-3. ./main
-
-(copiar y pegar las lóneas en la terminal SIN agregar espacios)

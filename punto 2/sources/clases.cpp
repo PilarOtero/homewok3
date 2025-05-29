@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "clases.h"
+#include "../headers/clases.h"
 
 using namespace std;
 

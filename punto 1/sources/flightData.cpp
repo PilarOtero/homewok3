@@ -1,4 +1,4 @@
-#include "fligthData.h"
+#include "flightData.h"
 
 /* COMENTARIOS 
 -> Al serializar y deserializar se utilizan los propios métodos de serialización y deserialización de la clase base para ahorrar codigo
